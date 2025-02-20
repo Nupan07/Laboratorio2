@@ -59,10 +59,7 @@ La mediana es el valor del medio de todos los datos ordenados de menor a mayor. 
 
 ## TRANSFORMA DE FOURIER
 
-
-
-
-
+![](https://github.com/Nupan07/Laboratorio2/blob/main/Transformada%20fourier.png)
 
 
 Esto se hace sumando los productos de los valores de la señal por senos y cosenos de distintas frecuencias.
@@ -70,5 +67,37 @@ Esto se hace sumando los productos de los valores de la señal por senos y cosen
 - **Densidad espectral de potencia:**
 
 Se obtiene elevando al cuadrado la magnitud de la transformada de Fourier y normalizando.
+
+## CONVOLUCIÓN 
+
+La convolución entre dos señales discretas se hace con la fórmula:
+
+![](https://github.com/Nupan07/Laboratorio2/blob/main/Convolucion.png)
+
+
+Para cada punto de la nueva señal 𝑦[𝑛], desplazamos la secuencia ℎ[𝑘] sobre 𝑥[𝑛] y realizamos productos y sumas. Esto se puede hacer en una tabla escribiendo los valores de ℎ[𝑘]
+en diferentes desplazamientos sobre 𝑥[𝑛], multiplicando y sumando los resultados.
+
+## CORRELACIÓN 
+
+La correlación cruzada mide la similitud entre dos señales desplazadas en el tiempo. Se calcula con:
+
+![](https://github.com/Nupan07/Laboratorio2/blob/main/Correlaci%C3%B3n.png)
+
+Para calcularla manualmente:
+
+1. Se toma una de las señales y se va desplazando sobre la otra.
+2. Se multiplican los valores correspondientes.
+3. Se suman los productos para cada desplazamiento.
+4. Se obtiene una tabla de valores y se grafica.
+
+
+
+
+
+
+
+
+ 
 
 ## INICIO LABORATORIO
