@@ -53,19 +53,22 @@ Donde:
 - \( x_i ) representa cada valor del conjunto de datos.
 - \( mu ) es la media de los datos.
 
-## COEFICIENTE DE VARIACIÓN 
+## MEDIANA 
 
-El coeficiente de variación es una medida estadística que sirve para determinar la dispersión de un conjunto de datos respecto a su media. El coeficiente de variación se calcula dividiendo la desviación típica de los datos entre su promedio.
+La mediana es el valor del medio de todos los datos ordenados de menor a mayor. Es decir, la mediana divide todo el conjunto de datos ordenados en dos partes iguales.
 
-El coeficiente de variación se expresa en forma de porcentaje y suelen utilizarse las siglas CV como símbolo de esta métrica estadística.
+## TRANSFORMA DE FOURIER
 
-![](https://github.com/Nupan07/procesamiento/blob/main/Coeficiente.png)
 
-El **coeficiente de variación** (CV) se calcula con la siguiente fórmula:
 
-Donde:
 
-- \( \sigma \): desviación estándar.
-- \( \mu \): media de los datos
+
+
+
+Esto se hace sumando los productos de los valores de la señal por senos y cosenos de distintas frecuencias.
+
+- **Densidad espectral de potencia:**
+
+Se obtiene elevando al cuadrado la magnitud de la transformada de Fourier y normalizando.
 
 ## INICIO LABORATORIO
