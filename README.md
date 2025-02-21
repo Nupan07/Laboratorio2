@@ -111,5 +111,9 @@ Lo segundo que se realizo fue la correlacion cruzada entre dos señales sinusida
 **convolucion de valnetina**
 Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:
      M
+     
 y[n]=∑ x[K]*h[n-k]
-    k=0
+
+   k=0
+    
+    
