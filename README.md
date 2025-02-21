@@ -109,11 +109,65 @@ Lo segundo que se realizo fue la correlacion cruzada entre dos señales sinusida
 
 ## Explicacion De La Convolucion 
 **convolucion de valnetina**
-Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:
-     M
-     
-y[n]=∑ x[K]*h[n-k]
+Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:    
+                
+                y[n]=∑ x[K]*h[n-k]
+                
+-x[k] es la señal de entrada.
+-h[k] es la respuesta del sistema.
+-y[n] es la señal de salida resultante.
 
-   k=0
+ Se dieron dos secuencias numericas: 
+ 
+Señal de entrada (#cedula)
+
+x[n] = {1, 1, 9, 3, 5, 6, 3, 2, 6, 1}
+
+Respuesta del sistema(codigo de estudiante) 
+
+h[n] = {5, 6, 0, 0, 5, 5, 7}
+
+Para calcular la convolución, usamos la fórmula de la convolución discreta, sumando los productos de los valores correspondientes mientras desplazamos una de las secuencias.
+
+donde:
+h[n]={5,6,0,0,5,5,7} (Código 5600557, longitud M=7)
+x[n]={1,1,9,3,5,6,3,2,6,1} (Cédula 1193563261, longitud N=10)
+La salida  y[n] tendrá una longitud de L=N+M−1=10+7−1=16.
+
+Ahora calculamos los valores de y[n] manualmente:
+
+Para y[0]:
+
+y[0]=h[0]x[0]=5(1)=5
+
+Para y[1]:
+
+y[1]=h[0]x[1]+h[1]x[0]=5(1)+6(1)=5+6=11
+
+Para y[2]:
+
+y[2]=h[0]x[2]+h[1]x[1]+h[2]x[0]=5(9)+6(1)+0(1)=45+6+0=51
+
+Para y[3]:
+
+y[3]=h[0]x[3]+h[1]x[2]+h[2]x[1]+h[3]x[0]=5(3)+6(9)+0(1)+0(1)=15+54+0+0=69
+
+Para y[4]:
+
+y[4]=h[0]x[4]+h[1]x[3]+h[2]x[2]+h[3]x[1]+h[4]x[0]=5(5)+6(3)+0(9)+0(1)+5(1)=25+18+0+0+5=48
+
+Para y[5]:
+
+y[5]=h[0]x[5]+h[1]x[4]+h[2]x[3]+h[3]x[2]+h[4]x[1]+h[5]x[0]=5(6)+6(5)+0(3)+0(9)+5(1)+5(1)=30+30+0+0+5+5=70
+
+Para y[6]:
+
+y[6]=h[0]x[6]+h[1]x[5]+h[2]x[4]+h[3]x[3]+h[4]x[2]+h[5]x[1]+h[6]x[0]=5(3)+6(6)+0(5)+0(3)+5(9)+5(1)+7(1)=15+36+0+0+45+5+7=108
     
-    
+Continuamos de la misma manera para los siguientes valores hasta y[15]:
+
+Por lo tanto, el resultado final de la convolución es:
+
+y[n]={5,11,51,69,48,70,108,95,145,117,86,67,61,49,47,7}
+
+
