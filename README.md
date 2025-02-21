@@ -365,6 +365,92 @@ x2 = np.sin(2 * np.pi * f * n * Ts): Genera una onda seno de 100 Hz.
 np.correlate(x1, x2, mode='full'): Calcula la similitud entre x1 y x2 a medida que una se desplaza sobre la otra.
 lags = np.arange(-len(n) + 1, len(n)): Define los desplazamientos posibles para la correlación.
 
-![](![image](https://github.com/user-attachments/assets/0c4be0a7-6e39-4839-896e-ff6c56cd9d5e)
+![](https://github.com/Nupan07/Laboratorio2/blob/main/CorrelacionNuOl.png)
+
 
 La correlación cruzada indica cómo varía la similitud entre x1 y x2 en función del desplazamiento. Dado que coseno y seno están desfasados 90° (π/2 radianes), la correlación será máxima en un desplazamiento específico y disminuirá en otros puntos. La gráfica muestra esta variación y ayuda a identificar el punto donde ambas señales están más alineadas.
+
+## SEGUNDA PARTE LAB
+
+ 📌 Descargar la señal EEG
+
+Asegúrate de tener el archivo "ath_003" .
+
+## METODOLOGIA DE GRAFICACIÓN DE LA SEÑAL
+
+**📊 ¿Cómo Graficar una Señal de EMG?**
+
+Para poder graficar la señal, lo primero que necesitamos es descargar la librería **`wfdb`**. Esta librería es súper útil porque nos permite leer archivos de datos fisiológicos, como el que vamos a usar. Básicamente, se encarga de abrir el documento descargado y mostrarnos la información que contiene.  
+
+Una vez tengas instalada la librería, el siguiente paso es **cargar el archivo en el compilador** que estés usando. En este caso, trabajaremos con un archivo llamado **`ath_003`**. Este archivo contiene varios derivaciones  de datos, pero no todos nos interesan, donde tomaremos la derivacion 3 
+
+Donde nos arroja la siguiente grafica :
+
+![](https://github.com/Nupan07/Laboratorio2/blob/main/Se%C3%B1alECG.png)
+
+En la cual empezaremos a calcular la media , mediana y desviacion estandar dada a continuacion por este fragmento de codgio:
+
+# Caracterización en el dominio del tiempo
+ media = np.mean(senal_ecg)
+    desviacion = np.std(senal_ecg)
+      mediana = np.median(senal_ecg)
+
+El cual nos arroja los siguientes resultados:
+
+![](https://github.com/Nupan07/Laboratorio2/blob/main/Resultados1.png)
+
+ **Análisis en el dominio del tiempo**
+
+- Se calcularon métricas fundamentales: media, mediana y desviación estándar.
+- Se generó un histograma para visualizar la distribución de la señal.
+
+  ![](https://github.com/Nupan07/Laboratorio2/blob/main/Histogramalab2.png)
+
+##  3️⃣ Transformada de Fourier
+
+- Se aplicó la Transformada de Fourier para analizar la composición en frecuencia de la señal ECG.
+- Se graficó la magnitud del espectro de frecuencias para identificar componentes dominantes.
+
+![](https://github.com/Nupan07/Laboratorio2/blob/main/TDF.png)
+
+y como ultimo sacamos la Densidad espectral 
+
+![](https://github.com/Nupan07/Laboratorio2/blob/main/Densidad.png)
+
+## ANALISIS DATOS ESTADISTICOS 
+
+**Frecuencia de muestreo**
+
+La señal se muestreó 500 veces por segundo, lo cual es una frecuencia adecuada para registrar señales fisiológicas como un electrocardiograma (ECG).
+
+**Estadísticos de la señal**
+
+**Media:** El valor promedio de la señal en el tiempo es de 0.0458. Este valor es bajo, lo cual es típico en señales de ECG después de aplicar filtros para eliminar la componente de corriente continua (DC).
+
+**Desviación estándar:** La dispersión de los valores de la señal respecto a la media es de 0.1138. Esto indica que la señal tiene una variabilidad considerable, con fluctuaciones significativas en su amplitud.
+
+**Mediana:** El valor central de la distribución de la señal es de 0.07112. La diferencia entre la mediana y la media sugiere una ligera asimetría en la distribución de los valores.
+
+## Histograma 
+
+Se observa una mayor concentración de energía en las frecuencias bajas (menores a 50 Hz).
+
+Esto es común en señales ECG, donde la mayor parte de la información útil está en el rango de 0.05-40 Hz. No parece haber componentes de alta frecuencia significativas
+
+Frecuencia media: 13.92 Hz
+
+Representa el promedio ponderado de las frecuencias presentes en la señal.
+
+Un valor cercano a 13 Hz es común en ECG, ya que las ondas principales del ECG (P, QRS y T) suelen encontrarse en este rango.
+
+Frecuencia mediana: 13.67 Hz
+
+Indica que la mitad de la energía de la señal se encuentra por debajo de este valor.
+
+Similar a la frecuencia media, lo que sugiere una distribución bastante simétrica de la energía en el dominio de la frecuencia.
+
+Desviación estándar de la frecuencia: 11.25 Hz
+
+Indica cuánta variabilidad hay en las frecuencias.
+
+Un valor de 11 Hz sugiere que la energía está concentrada en un rango relativamente estrecho de frecuencias, lo cual es esperable en ECG
