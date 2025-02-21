@@ -100,21 +100,22 @@ Se realizo dos calculos principales siendo el primero la convolucion de dos secu
 Lo segundo que se realizo fue la correlacion cruzada entre dos señales sinusidales para despues porder graficarlas y poder observar un dezplasiamiento y demostrar su desfases.
 
 ## Explicacion De La Convolucion 
-**convolucion de Nupan**
+
+ **convolucion de Nupan**
 ![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionNupan.jpg)
 
 
 Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:    
                 
-                y[n]=∑ x[K]*h[n-k]
+               y[n]=∑ x[K]*h[n-k]
                 
--x[k] es la señal de entrada.
--h[k] es la respuesta del sistema.
--y[n] es la señal de salida resultante.
+- x[k] es la señal de entrada.
+- h[k] es la respuesta del sistema.
+- y[n] es la señal de salida resultante.
 
  Se dieron dos secuencias numericas: 
  
-Señal de entrada (#cedula)
+**Señal de entrada (cedula)**
 
 x[n] = {1, 1, 9, 3, 5, 6, 3, 2, 6, 1}
 
@@ -125,37 +126,38 @@ h[n] = {5, 6, 0, 0, 5, 5, 7}
 Para calcular la convolución, usamos la fórmula de la convolución discreta, sumando los productos de los valores correspondientes mientras desplazamos una de las secuencias.
 
 donde:
-h[n]={5,6,0,0,5,5,7} (Código 5600557, longitud M=7)
-x[n]={1,1,9,3,5,6,3,2,6,1} (Cédula 1193563261, longitud N=10)
-La salida  y[n] tendrá una longitud de L=N+M−1=10+7−1=16.
+
+- h[n]={5,6,0,0,5,5,7} (Código 5600557, longitud M=7)
+- x[n]={1,1,9,3,5,6,3,2,6,1} (Cédula 1193563261, longitud N=10)
+- La salida  y[n] tendrá una longitud de L=N+M−1=10+7−1=16.
 
 Ahora calculamos los valores de y[n] manualmente:
 
--**Para y[0]**:
+- **Para y[0]**:
 
 y[0]=h[0]x[0]=5(1)=5
 
--**Para y[1]**:
+- **Para y[1]**:
 
 y[1]=h[0]x[1]+h[1]x[0]=5(1)+6(1)=5+6=11
 
--**Para y[2]**:
+- **Para y[2]**:
 
 y[2]=h[0]x[2]+h[1]x[1]+h[2]x[0]=5(9)+6(1)+0(1)=45+6+0=51
 
--**Para y[3]**:
+- **Para y[3]**:
 
 y[3]=h[0]x[3]+h[1]x[2]+h[2]x[1]+h[3]x[0]=5(3)+6(9)+0(1)+0(1)=15+54+0+0=69
 
--**Para y[4]**:
+- **Para y[4]**:
 
 y[4]=h[0]x[4]+h[1]x[3]+h[2]x[2]+h[3]x[1]+h[4]x[0]=5(5)+6(3)+0(9)+0(1)+5(1)=25+18+0+0+5=48
 
--**Para y[5]**:
+- **Para y[5]**:
 
 y[5]=h[0]x[5]+h[1]x[4]+h[2]x[3]+h[3]x[2]+h[4]x[1]+h[5]x[0]=5(6)+6(5)+0(3)+0(9)+5(1)+5(1)=30+30+0+0+5+5=70
 
--**Para y[6]**:
+- **Para y[6]**:
 
 y[6]=h[0]x[6]+h[1]x[5]+h[2]x[4]+h[3]x[3]+h[4]x[2]+h[5]x[1]+h[6]x[0]=5(3)+6(6)+0(5)+0(3)+5(9)+5(1)+7(1)=15+36+0+0+45+5+7=108
     
@@ -163,7 +165,7 @@ Continuamos de la misma manera para los siguientes valores hasta y[15]:
 
 Por lo tanto, el resultado final de la convolución es:
 
-y[n]={5,11,51,69,48,70,108,95,145,117,86,67,61,49,47,7}
+**y[n]={5,11,51,69,48,70,108,95,145,117,86,67,61,49,47,7}**
 
 Ya obteniendo la convulcion podemos porseguir con el codigo para poder hallar la representacionde grafica de la convolucion y[n] 
 
@@ -204,13 +206,14 @@ import matplotlib.pyplot as plt
                        plt.title('Representación Gráfica de la Convolución y[n]')
                        plt.grid()
                        plt.show()
+                       
 Este código genera una representación gráfica de la señal resultante de la convolución 
 y[n] utilizando la función stem(), que es ideal para señales discretas. Primero, importamos matplotlib.pyplot para poder graficar. Luego, creamos un arreglo n_values con valores desde 0 hasta el tamaño de 
 y[n], lo que nos da los índices en el eje horizontal. Después, usamos plt.figure(figsize=(10, 5)) para definir el tamaño de la figura y plt.stem(n_values, y_new, use_line_collection=True) para graficar 
 y[n], donde use_line_collection=True mejora la visualización de las líneas verticales. Añadimos etiquetas con plt.xlabel('n') y plt.ylabel('y[n]') para indicar qué representan los ejes.
 
+![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionNu.png)
 
-//imagen de la grafica de la convolucion tuya//
 
 La gráfica nos muestra cómo la señal cambia al pasar por el sistema, destacando qué partes tienen mayor respuesta y dónde la señal pierde fuerza.
 
@@ -222,13 +225,13 @@ Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como un
                 
                 y[n]=∑ x[K]*h[n-k]
                 
--x[k] es la señal de entrada.
--h[k] es la respuesta del sistema.
--y[n] es la señal de salida resultante.
+- x[k] es la señal de entrada.
+- h[k] es la respuesta del sistema.
+- y[n] es la señal de salida resultante.
 
  Se dieron dos secuencias numericas: 
  
-Señal de entrada (#cedula)
+**Señal de entrada (#cedula)**
 
 x[n] = {1, 0, 3, 1, 6, 4, 4, 1, 2, 4}
 
@@ -238,33 +241,34 @@ h[n] = {5, 6, 0, 0, 6, 3, 5}
 
 Para calcular la convolución, usamos la fórmula de la convolución discreta, sumando los productos de los valores correspondientes mientras desplazamos una de las secuencias.
 
-donde:
-h[n]={5,6,0,0,6,3,5} (Código 5600635, longitud M=7)
-x[n]={1,0,3,1,6,4,4,1,2,4} (Cédula 1031644124, longitud N=10)
-La salida  y[n] tendrá una longitud de L=N+M−1=10+7−1=16.
+Donde:
+
+- h[n]={5,6,0,0,6,3,5} (Código 5600635, longitud M=7)
+- x[n]={1,0,3,1,6,4,4,1,2,4} (Cédula 1031644124, longitud N=10)
+- La salida  y[n] tendrá una longitud de L=N+M−1=10+7−1=16.
 
 Ahora calculamos los valores de y[n] manualmente:
 
-Para y[0]:
+- **Para y[0]:**
 
 y[0]=h[0]x[0]=5(1)=5
 
-Para y[1]:
+- **Para y[1]:**
 
 y[1]=h[0]x[1]+h[1]x[0]=5(0)+6(1)=6
 
-Para y[2]:
+- **Para y[2]:**
 
 y[2]=h[0]x[2]+h[1]x[1]+h[2]x[0]=5(3)+6(0)+0(1)=15
 
-Para y[3]:
+- **Para y[3]:**
 
 y[3]=h[0]x[3]+h[1]x[2]+h[2]x[1]+h[3]x[0]=5(1)+6(3)+0(0)+0(1)=5+18=23
 
 Siguiendo esta metodología, podemos calcular todos los valores hasta y[15].
 Por lo tanto, el resultado final de la convolución es:
 
-y[n]={5,6,15,23,42,59,67,44,70,79,90,38,35,35,22,20}
+**y[n]={5,6,15,23,42,59,67,44,70,79,90,38,35,35,22,20}**
 
 Ya obteniendo la convulcion podemos porseguir con el codigo para poder hallar la representacionde grafica de la convolucion y[n] 
 
@@ -305,12 +309,13 @@ import matplotlib.pyplot as plt
                        plt.title('Representación Gráfica de la Convolución y[n]')
                        plt.grid()
                        plt.show()
+                       
 Este código genera una representación gráfica de la señal resultante de la convolución 
 y[n] utilizando la función stem(), que es ideal para señales discretas. Primero, importamos matplotlib.pyplot para poder graficar. Luego, creamos un arreglo n_values con valores desde 0 hasta el tamaño de 
 y[n], lo que nos da los índices en el eje horizontal. Después, usamos plt.figure(figsize=(10, 5)) para definir el tamaño de la figura y plt.stem(n_values, y_new, use_line_collection=True) para graficar 
 y[n], donde use_line_collection=True mejora la visualización de las líneas verticales. Añadimos etiquetas con plt.xlabel('n') y plt.ylabel('y[n]') para indicar qué representan los ejes.
 
-//imagen de la grafica de la convolucion mia//
+![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionOl.png)
 
 La gráfica nos muestra cómo la señal cambia al pasar por el sistema, destacando qué partes tienen mayor respuesta y dónde la señal pierde fuerza.
 
@@ -321,7 +326,7 @@ Ahora analizamos la correlación entre dos señales:
 x1[n]=cos [n]=cos(2π100nT)
 x2[n]=sin [n]=sin(2π100nT)
 
-codigo+
+**codigo:**
 
              fs = 1 / (1.25e-3)  # Frecuencia de muestreo (1/Ts)
              Ts = 1 / fs
@@ -341,6 +346,7 @@ codigo+
              plt.title('Correlación entre x1[n] y x2[n]')
              plt.grid()
              plt.show()
+             
 1️⃣ Definir parámetros:
 
 fs = 1 / (1.25e-3): Calcula la frecuencia de muestreo a partir del período de muestreo  =1.25 ms.
@@ -359,6 +365,6 @@ x2 = np.sin(2 * np.pi * f * n * Ts): Genera una onda seno de 100 Hz.
 np.correlate(x1, x2, mode='full'): Calcula la similitud entre x1 y x2 a medida que una se desplaza sobre la otra.
 lags = np.arange(-len(n) + 1, len(n)): Define los desplazamientos posibles para la correlación.
 
-//imagen de la  Correlación Cruzada entre señales sinusoidales//
+![](![image](https://github.com/user-attachments/assets/0c4be0a7-6e39-4839-896e-ff6c56cd9d5e)
 
 La correlación cruzada indica cómo varía la similitud entre x1 y x2 en función del desplazamiento. Dado que coseno y seno están desfasados 90° (π/2 radianes), la correlación será máxima en un desplazamiento específico y disminuirá en otros puntos. La gráfica muestra esta variación y ayuda a identificar el punto donde ambas señales están más alineadas.
