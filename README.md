@@ -101,3 +101,15 @@ Para calcularla manualmente:
  
 
 ## INICIO LABORATORIO
+
+## ¿Que estamos resolviendo ?
+Se realizo dos calculos principales siendo el primero la convolucion de dos secuencias numericas siendo una el codigo de estudiante y la otra en numero de cedula.
+
+Lo segundo que se realizo fue la correlacion cruzada entre dos señales sinusidales para despues porder graficarlas y poder observar un dezplasiamiento y demostrar su desfases.
+
+## Explicacion De La Convolucion 
+**convolucion de valnetina**
+Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:
+     M
+y[n]=∑ x[K]*h[n-k]
+    k=0
