@@ -108,7 +108,10 @@ Se realizo dos calculos principales siendo el primero la convolucion de dos secu
 Lo segundo que se realizo fue la correlacion cruzada entre dos señales sinusidales para despues porder graficarlas y poder observar un dezplasiamiento y demostrar su desfases.
 
 ## Explicacion De La Convolucion 
-**convolucion de valnetina**
+**convolucion de Nupan**
+![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionNupan.jpg)
+
+
 Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:    
                 
                 y[n]=∑ x[K]*h[n-k]
