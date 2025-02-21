@@ -103,9 +103,10 @@ Para calcularla manualmente:
 ## INICIO LABORATORIO
 
 ## ¿Que estamos resolviendo ?
-Se realizo dos calculos principales siendo el primero la convolucion de dos secuencias numericas siendo una el codigo de estudiante y la otra en numero de cedula.
 
-Lo segundo que se realizo fue la correlacion cruzada entre dos señales sinusidales para despues porder graficarlas y poder observar un dezplasiamiento y demostrar su desfases.
+Se llevaron a cabo dos cálculos principales en este estudio. En primer lugar, se realizó la convolución de dos secuencias numéricas: una derivada del código de cada uno de los  estudiantes participes en este laboratorio  y otra basada en el número de cédula. Este procedimiento permitió fusionar ambas secuencias, generando una nueva señal que integra las características de cada una de ellas.
+
+En segundo lugar, se aplicó la correlación cruzada entre dos señales sinusoidales. Con este método se logró representar gráficamente ambas señales, facilitando la observación del desplazamiento entre ellas y permitiendo demostrar, de manera formal, los desfases existentes en sus comportamientos.
 
 ## Explicacion De La Convolucion 
 **convolucion de valnetina**
