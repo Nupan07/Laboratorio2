@@ -103,10 +103,9 @@ Para calcularla manualmente:
 ## INICIO LABORATORIO
 
 ## ¿Que estamos resolviendo ?
+Se realizo dos calculos principales siendo el primero la convolucion de dos secuencias numericas siendo una el codigo de estudiante y la otra en numero de cedula.
 
-Se llevaron a cabo dos cálculos principales en este estudio. En primer lugar, se realizó la convolución de dos secuencias numéricas: una derivada del código de cada uno de los  estudiantes participes en este laboratorio  y otra basada en el número de cédula. Este procedimiento permitió fusionar ambas secuencias, generando una nueva señal que integra las características de cada una de ellas.
-
-En segundo lugar, se aplicó la correlación cruzada entre dos señales sinusoidales. Con este método se logró representar gráficamente ambas señales, facilitando la observación del desplazamiento entre ellas y permitiendo demostrar, de manera formal, los desfases existentes en sus comportamientos.
+Lo segundo que se realizo fue la correlacion cruzada entre dos señales sinusidales para despues porder graficarlas y poder observar un dezplasiamiento y demostrar su desfases.
 
 ## Explicacion De La Convolucion 
 **convolucion de valnetina**
@@ -137,31 +136,31 @@ La salida  y[n] tendrá una longitud de L=N+M−1=10+7−1=16.
 
 Ahora calculamos los valores de y[n] manualmente:
 
-Para y[0]:
+-**Para y[0]**:
 
 y[0]=h[0]x[0]=5(1)=5
 
-Para y[1]:
+-**Para y[1]**:
 
 y[1]=h[0]x[1]+h[1]x[0]=5(1)+6(1)=5+6=11
 
-Para y[2]:
+-**Para y[2]**:
 
 y[2]=h[0]x[2]+h[1]x[1]+h[2]x[0]=5(9)+6(1)+0(1)=45+6+0=51
 
-Para y[3]:
+-**Para y[3]**:
 
 y[3]=h[0]x[3]+h[1]x[2]+h[2]x[1]+h[3]x[0]=5(3)+6(9)+0(1)+0(1)=15+54+0+0=69
 
-Para y[4]:
+-**Para y[4]**:
 
 y[4]=h[0]x[4]+h[1]x[3]+h[2]x[2]+h[3]x[1]+h[4]x[0]=5(5)+6(3)+0(9)+0(1)+5(1)=25+18+0+0+5=48
 
-Para y[5]:
+-**Para y[5]**:
 
 y[5]=h[0]x[5]+h[1]x[4]+h[2]x[3]+h[3]x[2]+h[4]x[1]+h[5]x[0]=5(6)+6(5)+0(3)+0(9)+5(1)+5(1)=30+30+0+0+5+5=70
 
-Para y[6]:
+-**Para y[6]**:
 
 y[6]=h[0]x[6]+h[1]x[5]+h[2]x[4]+h[3]x[3]+h[4]x[2]+h[5]x[1]+h[6]x[0]=5(3)+6(6)+0(5)+0(3)+5(9)+5(1)+7(1)=15+36+0+0+45+5+7=108
     
@@ -170,5 +169,56 @@ Continuamos de la misma manera para los siguientes valores hasta y[15]:
 Por lo tanto, el resultado final de la convolución es:
 
 y[n]={5,11,51,69,48,70,108,95,145,117,86,67,61,49,47,7}
+
+Ya obteniendo la convulcion podemos porseguir con el codigo para poder hallar la representacionde grafica de la convolucion y[n] 
+
+En este código se calcula la convolución discreta entre dos secuencias h[n] y x[n] usando la función np.convolve() de NumPy. 
+
+-**Paso 1: Definir las secuencias h[n] y x[n]**
+
+    h_new = np.array([5, 6, 0, 0, 5, 5, 7])  # Código 5600557
+    x_new = np.array([1, 1, 9, 3, 5, 6, 3, 2, 6, 1])  # Cédula 1193563261
+Aquí estamos creando dos arreglos NumPy (np.array), que contienen los valores de las secuencias 
+h[n] y x[n].
+
+-h[n] representa la respuesta del sistema (como un filtro).
+
+-x[n] es la señal de entrada (datos de la cédula).
+
+-**Paso 2: Calcular la convolución con np.convolve()**
+          
+          y_new = np.convolve(x_new, h_new)
+np.convolve(x_new, h_new) multiplica y suma los valores de 
+x[n] y h[n] de manera desplazada, siguiendo la fórmula matemática:
+
+y[n]= ∑ x[k]⋅h[n−k]
+
+Esto nos da la respuesta del sistema a la entrada dada.
+Ya con el codigo de la convolucion y el resultado dado el siguiente paso es contruir la grafica.
+
+import matplotlib.pyplot as plt
+
+                       # Valores de nimport matplotlib.pyplot as plt
+                      n_values = np.arange(len(y_new))
+
+                       # Crear la gráfica de stem (señal discreta)
+                       plt.figure(figsize=(10, 5))
+                       plt.stem(n_values, y_new, use_line_collection=True)
+                       plt.xlabel('n')
+                       plt.ylabel('y[n]')
+                       plt.title('Representación Gráfica de la Convolución y[n]')
+                       plt.grid()
+                       plt.show()
+Este código genera una representación gráfica de la señal resultante de la convolución 
+y[n] utilizando la función stem(), que es ideal para señales discretas. Primero, importamos matplotlib.pyplot para poder graficar. Luego, creamos un arreglo n_values con valores desde 0 hasta el tamaño de 
+y[n], lo que nos da los índices en el eje horizontal. Después, usamos plt.figure(figsize=(10, 5)) para definir el tamaño de la figura y plt.stem(n_values, y_new, use_line_collection=True) para graficar 
+y[n], donde use_line_collection=True mejora la visualización de las líneas verticales. Añadimos etiquetas con plt.xlabel('n') y plt.ylabel('y[n]') para indicar qué representan los ejes.
+
+
+//imagen de la grafica de la convolucion tuya//
+
+La gráfica nos muestra cómo la señal cambia al pasar por el sistema, destacando qué partes tienen mayor respuesta y dónde la señal pierde fuerza.
+
+**convolucion de olfred**
 
 
