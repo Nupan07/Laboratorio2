@@ -92,14 +92,6 @@ Para calcularla manualmente:
 4. Se obtiene una tabla de valores y se grafica.
 
 
-
-
-
-
-
-
- 
-
 ## INICIO LABORATORIO
 
 ## ¿Que estamos resolviendo ?
@@ -223,6 +215,9 @@ y[n], donde use_line_collection=True mejora la visualización de las líneas ver
 La gráfica nos muestra cómo la señal cambia al pasar por el sistema, destacando qué partes tienen mayor respuesta y dónde la señal pierde fuerza.
 
 **convolucion de olfred**
+
+![](https://github.com/Nupan07/Laboratorio2/blob/main/ConvolucionOlfred.jpg)
+
 Se hizo una convolucion discreta de dos secuencias x[n] y h[n] se define como una suma:    
                 
                 y[n]=∑ x[K]*h[n-k]
